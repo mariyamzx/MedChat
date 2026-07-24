@@ -150,3 +150,7 @@ MedChat_2/
 ## Disclaimer
 
 MedChat is an educational project and is not a substitute for professional medical advice. Every clinical response includes a disclaimer directing the patient to confirm with a pharmacist or doctor before taking any medicine.
+
+## Contributors
+[https://github.com/mariyamzx/](url)
+[https://github.com/abiha25/](url)
