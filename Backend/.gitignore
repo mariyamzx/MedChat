@@ -1,0 +1,14 @@
+# NEVER commit real credentials. Your previous zip contained a live .env
+# with a working HF token and Groq key — rotate both.
+.env
+
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.DS_Store
+.idea/
+.vscode/

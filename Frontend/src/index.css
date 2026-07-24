@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-lav-50:  #F8F6FF;
+  --color-lav-100: #F1EEFC;
+  --color-lav-200: #E4DEFA;
+  --color-lav-300: #C9BEF5;
+  --color-lav-400: #A99AF0;
+  --color-lav-500: #7C6FDB;
+  --color-lav-600: #6558C8;
+  --color-lav-700: #4E43A8;
+
+  --color-plum:       #3D3568;
+  --color-plum-light: #5A5085;
+  --color-muted:      #9A91C8;
+
+  --color-urgent: #E05252;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-5px); }
+}
+
+/* Hide scrollbars until hover */
+.scrollable { scrollbar-width: none; }
+.scrollable::-webkit-scrollbar { display: none; }

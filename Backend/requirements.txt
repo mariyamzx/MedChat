@@ -1,0 +1,31 @@
+# ---- Web framework ----
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# ---- MongoDB ----
+# pymongo[srv] pulls in dnspython, which is REQUIRED for mongodb+srv://
+# Atlas connection strings. Without it you get a confusing
+# "DNS query name does not exist" error.
+pymongo[srv]==4.10.1
+# certifi supplies the CA bundle for the Atlas TLS handshake. This is the
+# fix for the most common Atlas failure on Windows.
+certifi==2024.12.14
+
+# ---- Config ----
+python-dotenv==1.0.1
+
+# ---- Validation ----
+pydantic==2.10.4
+
+# ---- HTTP (LLM provider calls) ----
+requests==2.32.3
+
+# REMOVED and why:
+#   sqlalchemy, psycopg2-binary  -> replaced by pymongo
+#   langchain, langchain-core,
+#   langchain-huggingface,
+#   huggingface_hub              -> replaced by direct HTTP calls in
+#                                   app/llm_client.py. These pinned packages
+#                                   were a recurring source of import-time
+#                                   breakage and the legacy HF inference
+#                                   endpoint they used is being retired.
