@@ -119,7 +119,7 @@ These are scoping decisions from the current safety design, not bugs — expandi
 ## Project structure
 
 ```
-MedChat_2/
+MedChat/
 ├── Backend/
 │   ├── app/
 │   │   ├── main.py            # FastAPI app, all endpoints
@@ -136,7 +136,7 @@ MedChat_2/
 │   ├── tests/                 # offline triage, safety filter, profile update tests
 │   ├── seed_reference_data.py # loads drug classes + contraindication rules
 │   ├── chatbot.py             # CLI for interactive testing against a real patient
-│   └── API_CONTRACT.md
+│   
 └── Frontend/
     └── src/
         ├── App.tsx            # main application shell and chat UI
