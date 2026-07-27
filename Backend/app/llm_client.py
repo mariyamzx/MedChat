@@ -1,30 +1,3 @@
-"""
-LLM access layer.
-
-WHY LANGCHAIN WAS REMOVED
--------------------------
-The old chain was `prompt | ChatHuggingFace(HuggingFaceEndpoint(...)) |
-JsonOutputParser`. Three problems with that for this project:
-
-  1. langchain, langchain-core and langchain-huggingface were pinned to
-     exact versions. Any pip resolution change broke the import chain —
-     a likely source of the "backend server issues" you hit.
-  2. HuggingFaceEndpoint with task="text-generation" points at the legacy
-     serverless inference API, which has been progressively retired. That
-     path returns 404s and StopIteration errors that look like code bugs.
-  3. JsonOutputParser can only *hope* the model emitted JSON. It has no
-     way to enforce it.
-
-This replacement is ~150 lines of plain `requests` against an
-OpenAI-compatible chat endpoint. Both Groq and Hugging Face's current
-router speak that format, so switching providers is one env var. Groq is
-the default because it supports response_format={"type":"json_object"},
-which makes the API itself guarantee parseable JSON — a far stronger
-guarantee than prompting for it.
-
-You can still describe this in your report as structured JSON output
-validated by Pydantic, which is exactly what it is.
-"""
 
 import json
 import logging
