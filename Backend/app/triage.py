@@ -8,13 +8,6 @@ Three layers, cheapest and most reliable first:
                                 accuracy and zero LLM calls
   3. LLM classifier           — only for anything the first two didn't settle
 
-Layer 2 is worth explaining. Your complaint was that greetings get a
-medicine. Even a good classifier is only ~98% reliable, and a greeting is
-the single most common message a chat app receives — so at scale that
-still means visible failures. But "hi", "hello", "thanks" are a closed,
-tiny set of exact strings. Matching them in code makes that failure mode
-mathematically impossible rather than merely unlikely, and it makes the
-app feel instant on the most common input.
 """
 
 import logging
