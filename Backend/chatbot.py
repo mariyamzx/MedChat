@@ -1,22 +1,4 @@
-"""
-Command-line chat client.
 
-WHAT CHANGED
-------------
-The original chatbot.py was a separate program that talked to your own
-FastAPI server over HTTP. That meant the chat logic lived outside the
-backend, so there was no endpoint a frontend could ever call — the logic
-was only reachable by running this script by hand.
-
-The logic now lives in app/chat_engine.py, inside the backend, exposed at
-POST /chat. This file is just a thin CLI wrapper around the same engine,
-kept because it is genuinely useful for testing the pipeline without
-needing the frontend or even the web server running.
-
-Usage:
-    python chatbot.py <patient_id>              # interactive session
-    python chatbot.py <patient_id> "sore throat"  # single message
-"""
 
 import sys
 import logging
