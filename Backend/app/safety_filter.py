@@ -1,31 +1,4 @@
-"""
-Deterministic safety filter.
 
-This is CODE, not AI. Nothing here asks the model anything. It is the last
-line of defence between a generated suggestion and the patient, and it runs
-after every generation.
-
-WHAT CHANGED AND WHY
---------------------
-The original filter checked allergies only. Everything else — pregnancy,
-chronic conditions, drug interactions, double-dosing — was left to the
-prompt, i.e. left to the model's goodwill. For a medical tool that is the
-wrong place for those checks, because a model that hallucinates is
-precisely the failure this layer exists to catch.
-
-Five independent checks now run, in order of severity:
-
-  1. Allergy, direct match           (was present)
-  2. Allergy, drug-class match       (was present)
-  3. Prior adverse reaction          (NEW — was in the DB, never checked)
-  4. Condition contraindication      (NEW — asthma + NSAID, ulcer + NSAID, ...)
-  5. Pregnancy contraindication      (NEW)
-  6. Duplicate therapy               (NEW — already taking a same-class drug)
-
-The function signature is unchanged apart from dropping the `db` argument
-(the repository layer owns that now), and it still returns
-{"result": ..., "blocked_reason": ...}, so callers are unaffected.
-"""
 
 import logging
 from typing import Optional
