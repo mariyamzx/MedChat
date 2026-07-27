@@ -3,7 +3,7 @@ MongoDB Atlas connection.
 
 WHY PYMONGO AND NOT MOTOR
 -------------------------
-Your existing FastAPI endpoints are synchronous (`def`, not `async def`).
+My existing FastAPI endpoints are synchronous (`def`, not `async def`).
 Motor is async, so adopting it would force `async`/`await` through every
 endpoint, the safety filter and the chat engine — a large rewrite with
 many chances to break something. PyMongo is synchronous, so the shape of
