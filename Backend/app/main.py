@@ -1,20 +1,4 @@
-"""
-FastAPI application.
 
-CHANGES FROM THE ORIGINAL
--------------------------
-- CORS middleware added. Without it, every browser request from the React
-  frontend is rejected before reaching any of this code. This was almost
-  certainly a large part of the "backend server issues" during integration.
-- POST /login added. /survey stored an email and password hash but nothing
-  ever verified them, so the frontend login screen had no endpoint.
-- GET /health added, reporting database and LLM configuration status.
-- POST /chat now runs the actual conversation pipeline. It previously
-  required the caller to have already decided the medicine.
-- POST /safety-check preserves the old /chat behaviour, so the existing
-  safety-filter test suite still works.
-- All SQL is gone; every endpoint calls repository functions instead.
-"""
 
 import hashlib
 import logging
