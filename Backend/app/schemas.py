@@ -1,10 +1,4 @@
-"""
-Request/response models.
 
-The survey models below are UNCHANGED from your original file — the
-frontend's survey payload keeps working exactly as before. Everything new
-is at the bottom, under "CHAT".
-"""
 
 from pydantic import BaseModel, Field
 from typing import Optional, List, Literal, Dict, Any
